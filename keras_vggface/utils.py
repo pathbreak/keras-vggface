@@ -9,7 +9,7 @@
 
 import numpy as np
 from tensorflow.keras import backend as K
-from tensorflow.keras.utils.data_utils import get_file
+from tensorflow.keras.utils import get_file
 
 V1_LABELS_PATH = 'https://github.com/rcmalli/keras-vggface/releases/download/v2.0/rcmalli_vggface_labels_v1.npy'
 V2_LABELS_PATH = 'https://github.com/rcmalli/keras-vggface/releases/download/v2.0/rcmalli_vggface_labels_v2.npy'
@@ -69,12 +69,12 @@ def decode_predictions(preds, top=5):
         if preds.shape[1] == 2622:
             fpath = get_file('rcmalli_vggface_labels_v1.npy',
                              V1_LABELS_PATH,
-                             cache_subdir=VGGFACE_DIR)
+                             cache_dir=VGGFACE_DIR)
             LABELS = np.load(fpath)
         elif preds.shape[1] == 8631:
             fpath = get_file('rcmalli_vggface_labels_v2.npy',
                              V2_LABELS_PATH,
-                             cache_subdir=VGGFACE_DIR)
+                             cache_dir=VGGFACE_DIR)
             LABELS = np.load(fpath)
         else:
             raise ValueError('`decode_predictions` expects '
