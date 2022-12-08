@@ -15,12 +15,12 @@ from tensorflow.keras.layers import Flatten, Dense, Input, GlobalAveragePooling2
     GlobalMaxPooling2D, Activation, Conv2D, MaxPooling2D, BatchNormalization, \
     AveragePooling2D, Reshape, Permute, multiply
 from keras_applications.imagenet_utils import _obtain_input_shape
-from tensorflow.keras.utils import layer_utils
+# from tensorflow.keras.utils import layer_utils # Only required by theano logic which is not reqd for tf.keras
 from tensorflow.keras.utils.data_utils import get_file
 from tensorflow.keras import backend as K
 from keras_vggface import utils
-from tensorflow.keras.utils.layer_utils import get_source_inputs
-import warnings
+from tensorflow.keras.utils import get_source_inputs
+#import warnings
 from tensorflow.keras.models import Model
 
 
@@ -116,6 +116,10 @@ def VGG16(include_top=True, weights='vggface',
                                     utils.VGG16_WEIGHTS_PATH_NO_TOP,
                                     cache_subdir=utils.VGGFACE_DIR)
         model.load_weights(weights_path, by_name=True)
+        
+        '''
+        # Disabling theano-related code and logic because imports like
+        # layer_utils aren't available in tf.keras.
         if K.backend() == 'theano':
             layer_utils.convert_all_kernels_in_model(model)
 
@@ -136,6 +140,7 @@ def VGG16(include_top=True, weights='vggface',
                               '`image_data_format="channels_last"` in '
                               'your Keras config '
                               'at ~/.keras/keras.json.')
+        '''
     return model
 
 
@@ -286,6 +291,9 @@ def RESNET50(include_top=True, weights='vggface',
                                     utils.RESNET50_WEIGHTS_PATH_NO_TOP,
                                     cache_subdir=utils.VGGFACE_DIR)
         model.load_weights(weights_path)
+        
+        '''
+        # Disable Theano logic because tf.keras doesn't have imports like layer_utils.
         if K.backend() == 'theano':
             layer_utils.convert_all_kernels_in_model(model)
             if include_top:
@@ -304,6 +312,7 @@ def RESNET50(include_top=True, weights='vggface',
                           '`image_data_format="channels_last"` in '
                           'your Keras config '
                           'at ~/.keras/keras.json.')
+        '''
     elif weights is not None:
         model.load_weights(weights)
 
@@ -493,6 +502,10 @@ def SENET50(include_top=True, weights='vggface',
                                     utils.SENET50_WEIGHTS_PATH_NO_TOP,
                                     cache_subdir=utils.VGGFACE_DIR)
         model.load_weights(weights_path)
+        
+        '''
+        # Disable Theano logic because tf.keras doesn't have imports like layer_utils.
+
         if K.backend() == 'theano':
             layer_utils.convert_all_kernels_in_model(model)
             if include_top:
@@ -511,6 +524,7 @@ def SENET50(include_top=True, weights='vggface',
                           '`image_data_format="channels_last"` in '
                           'your Keras config '
                           'at ~/.keras/keras.json.')
+        '''
     elif weights is not None:
         model.load_weights(weights)
 
