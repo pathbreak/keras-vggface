@@ -12,7 +12,7 @@ setup(
     packages=find_packages(exclude=["tools", "training", "temp", "test", "data", "visualize","image",".venv",".github"]),
     zip_safe=False,
     install_requires=[
-        'numpy>=1.9.1', 'scipy>=0.14', 'h5py', 'pillow', 'keras',
+        'numpy>=1.9.1', 'scipy>=0.14', 'h5py', 'pillow', 'tensorflow',
         'six>=1.9.0', 'pyyaml'
     ],
     extras_require={
