@@ -14,7 +14,7 @@ from tensorflow.keras import layers
 from tensorflow.keras.layers import Flatten, Dense, Input, GlobalAveragePooling2D, \
     GlobalMaxPooling2D, Activation, Conv2D, MaxPooling2D, BatchNormalization, \
     AveragePooling2D, Reshape, Permute, multiply
-from keras_applications.imagenet_utils import _obtain_input_shape
+from tensorflow.keras.applications.imagenet_utils import obtain_input_shape
 # from tensorflow.keras.utils import layer_utils # Only required by theano logic which is not reqd for tf.keras
 from tensorflow.keras.utils.data_utils import get_file
 from tensorflow.keras import backend as K
@@ -28,7 +28,7 @@ def VGG16(include_top=True, weights='vggface',
           input_tensor=None, input_shape=None,
           pooling=None,
           classes=2622):
-    input_shape = _obtain_input_shape(input_shape,
+    input_shape = obtain_input_shape(input_shape,
                                       default_size=224,
                                       min_size=48,
                                       data_format=K.image_data_format(),
@@ -214,7 +214,7 @@ def RESNET50(include_top=True, weights='vggface',
              input_tensor=None, input_shape=None,
              pooling=None,
              classes=8631):
-    input_shape = _obtain_input_shape(input_shape,
+    input_shape = obtain_input_shape(input_shape,
                                       default_size=224,
                                       min_size=32,
                                       data_format=K.image_data_format(),
@@ -423,7 +423,7 @@ def SENET50(include_top=True, weights='vggface',
             input_tensor=None, input_shape=None,
             pooling=None,
             classes=8631):
-    input_shape = _obtain_input_shape(input_shape,
+    input_shape = obtain_input_shape(input_shape,
                                       default_size=224,
                                       min_size=197,
                                       data_format=K.image_data_format(),
