@@ -110,11 +110,11 @@ def VGG16(include_top=True, weights='vggface',
             weights_path = get_file('rcmalli_vggface_tf_vgg16.h5',
                                     utils.
                                     VGG16_WEIGHTS_PATH,
-                                    cache_dir=utils.VGGFACE_DIR)
+                                    cache_subdir=utils.VGGFACE_DIR)
         else:
             weights_path = get_file('rcmalli_vggface_tf_notop_vgg16.h5',
                                     utils.VGG16_WEIGHTS_PATH_NO_TOP,
-                                    cache_dir=utils.VGGFACE_DIR)
+                                    cache_subdir=utils.VGGFACE_DIR)
         model.load_weights(weights_path, by_name=True)
         
         '''
@@ -285,11 +285,11 @@ def RESNET50(include_top=True, weights='vggface',
         if include_top:
             weights_path = get_file('rcmalli_vggface_tf_resnet50.h5',
                                     utils.RESNET50_WEIGHTS_PATH,
-                                    cache_dir=utils.VGGFACE_DIR)
+                                    cache_subdir=utils.VGGFACE_DIR)
         else:
             weights_path = get_file('rcmalli_vggface_tf_notop_resnet50.h5',
                                     utils.RESNET50_WEIGHTS_PATH_NO_TOP,
-                                    cache_dir=utils.VGGFACE_DIR)
+                                    cache_subdir=utils.VGGFACE_DIR)
         model.load_weights(weights_path)
         
         '''
@@ -496,11 +496,11 @@ def SENET50(include_top=True, weights='vggface',
         if include_top:
             weights_path = get_file('rcmalli_vggface_tf_senet50.h5',
                                     utils.SENET50_WEIGHTS_PATH,
-                                    cache_dir=utils.VGGFACE_DIR)
+                                    cache_subdir=utils.VGGFACE_DIR)
         else:
             weights_path = get_file('rcmalli_vggface_tf_notop_senet50.h5',
                                     utils.SENET50_WEIGHTS_PATH_NO_TOP,
-                                    cache_dir=utils.VGGFACE_DIR)
+                                    cache_subdir=utils.VGGFACE_DIR)
         model.load_weights(weights_path)
         
         '''
