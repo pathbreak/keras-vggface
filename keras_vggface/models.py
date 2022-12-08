@@ -14,7 +14,7 @@ from tensorflow.keras import layers
 from tensorflow.keras.layers import Flatten, Dense, Input, GlobalAveragePooling2D, \
     GlobalMaxPooling2D, Activation, Conv2D, MaxPooling2D, BatchNormalization, \
     AveragePooling2D, Reshape, Permute, multiply
-from tensorflow.keras.applications.imagenet_utils import obtain_input_shape
+from keras.applications.imagenet_utils import obtain_input_shape
 # from tensorflow.keras.utils import layer_utils # Only required by theano logic which is not reqd for tf.keras
 from tensorflow.keras.utils.data_utils import get_file
 from tensorflow.keras import backend as K
